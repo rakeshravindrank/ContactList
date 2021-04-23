@@ -1,0 +1,17 @@
+<div class="container">
+    <form [formGroup]="userInputForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-5">
+                <label>Username:</label>
+                <input type="text" formControlName="username">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <label>Number:</label>
+                <input type="number" formControlName="number">
+            </div>
+        </div> 
+        <button type="submit" [disabled]="!userInputForm.valid">Submit</button>  
+    </form> 
+</div>
