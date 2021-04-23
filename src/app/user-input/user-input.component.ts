@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {  FormControl, FormGroup} from '@angular/forms';
+import {  FormControl, FormGroup, Validators} from '@angular/forms';
  
 import { UserStoreService, UserDetails } from '../service/user-store.service';
 
@@ -10,21 +10,22 @@ import { UserStoreService, UserDetails } from '../service/user-store.service';
   styleUrls: ['./user-input.component.css']
 })
 export class UserInputComponent implements OnInit {
+  title = 'Add Contact List';
   userInputForm: FormGroup;
   constructor(private userStoreService:UserStoreService) { }
 
   ngOnInit(): void {
     this.userInputForm = new FormGroup({
-        username: new FormControl(''),
-        number : new FormControl('')
+        username: new FormControl('', [Validators.required]),
+        usernumber : new FormControl('', [Validators.required])
       }
     )
   }
 
   onSubmit() {
     let user = new UserDetails();
-    user.name = this.userInputForm.get('username').value;
-    user.userNumber = this.userInputForm.get('number').value;
+    user.username = this.userInputForm.get('username').value;
+    user.usernumber = this.userInputForm.get('usernumber').value;
     this.userStoreService.addUserToUserDetailsArray(user);
   }
 

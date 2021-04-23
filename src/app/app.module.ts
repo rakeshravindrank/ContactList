@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FindUserComponent } from './find-user/find-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserInputComponent
+    UserInputComponent,
+    FindUserComponent
   ],
   imports: [
     ReactiveFormsModule,

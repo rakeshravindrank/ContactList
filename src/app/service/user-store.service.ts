@@ -11,16 +11,22 @@ export class UserStoreService implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.userDetails = new UserDetails();
   }
 
   addUserToUserDetailsArray(user: UserDetails) {
     this.userDetailsArray.push(user);
-    console.log("userDetailsArray = "+this.userDetailsArray.length);
+  }
+
+  findUser(findUser:string) {
+    let searchUser = this.userDetailsArray.find((user, index, users) => {
+        return user.username == findUser
+    });    
+    console.log("searched user= ",searchUser)
+    return searchUser;
   }
 }
 
 export class UserDetails {
-  name: string;
-  userNumber: number
+  username: string;
+  usernumber: number
 }

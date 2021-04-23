@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>{{title}}</h1>
+</div>
+<div class="container">
+    <div class="row">
+        Find User: 
+            <input 
+                type="text"
+                autocomplete="off" 
+                class="form-control"
+                (input)="findUser($event)">
+    </div>
+    <div *ngIf="searchUser && isSearchOn">
+        <li>
+            <label>User :</label>
+            {{this.searchUser.username}}
+        </li>
+        <li>
+            <label>Number :</label>
+            {{this.searchUser.usernumber}}
+        </li>
+    </div>
+    <div *ngIf="!searchUser && isSearchOn">
+        No users found
+    </div>
+</div>
+
